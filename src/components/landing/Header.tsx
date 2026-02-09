@@ -17,76 +17,88 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/95 backdrop-blur-sm shadow-sm py-3"
-          : "bg-transparent py-5"
+    <>
+      {/* Mobile Backdrop */}
+      {isMobileMenuOpen && (
+        <button
+          type="button"
+          aria-label="Fechar menu"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+        />
       )}
-    >
-      <div className="container mx-auto px-4 lg:px-8">
-        <nav className="flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#"
-            className="font-heading text-2xl md:text-3xl font-semibold tracking-wide text-foreground"
-          >
-            Indicann Health
-          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <Button asChild className="rounded-lg px-6">
-              <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
-                Agendar Consulta
-              </a>
-            </Button>
-          </div>
+      <header
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "bg-background shadow-sm",
+          isScrolled ? "py-3" : "py-5",
+          !isScrolled && !isMobileMenuOpen && "lg:bg-transparent lg:shadow-none"
+        )}
+      >
+        <div className="container mx-auto px-4 lg:px-8">
+          <nav className="flex items-center justify-between">
+            {/* Logo */}
+            <a
+              href="#"
+              className="font-heading text-2xl md:text-3xl font-semibold tracking-wide text-foreground"
+            >
+              Indicann Health
+            </a>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-foreground"
-            aria-label="Menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </nav>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-sm shadow-lg border-t border-border">
-            <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-8">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-base font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
-              <Button asChild className="rounded-lg mt-2">
+              <Button asChild className="rounded-lg px-6">
                 <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
                   Agendar Consulta
                 </a>
               </Button>
             </div>
-          </div>
-        )}
-      </div>
-    </header>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-foreground"
+              aria-label="Menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </nav>
+
+          {/* Mobile Navigation */}
+          {isMobileMenuOpen && (
+            <div className="lg:hidden absolute top-full left-0 right-0 z-50 bg-background shadow-lg border-t border-border">
+              <div className="container mx-auto px-4 py-6 flex flex-col gap-4">
+                {NAV_LINKS.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-base font-medium text-foreground/80 hover:text-foreground transition-colors py-2"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+                <Button asChild className="rounded-lg mt-2">
+                  <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
+                    Agendar Consulta
+                  </a>
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </header>
+    </>
   );
 };
 
