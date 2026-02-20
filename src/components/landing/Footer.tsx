@@ -1,25 +1,22 @@
-import { Instagram } from "lucide-react";
-import { SOCIAL_LINKS, WA_LINK } from "@/lib/constants";
+import { WA_LINK } from "@/lib/constants";
 
 const Footer = () => {
   return (
     <footer className="py-12 md:py-16 bg-muted">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Logo */}
           <div className="text-center md:text-left">
-            <a
-              href="#"
-              className="font-heading text-2xl font-semibold tracking-wide text-foreground"
-            >
-              Indicann Health
-            </a>
+            <img
+              src="/logo.png"
+              alt="Indicann Health"
+              draggable={false}
+              className="w-auto h-[5.25rem] md:h-[6rem]"
+            />
             <p className="text-sm text-muted-foreground mt-2">
               Cuidado com confiança e elegância.
             </p>
           </div>
 
-          {/* Links */}
           <div className="flex items-center gap-6">
             {/* <a
               href={SOCIAL_LINKS.privacyPolicy}
@@ -27,7 +24,7 @@ const Footer = () => {
             >
               Política de privacidade
             </a> */}
-            <a
+            {/* <a
               href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
@@ -35,7 +32,7 @@ const Footer = () => {
               aria-label="Instagram"
             >
               <Instagram className="w-5 h-5" />
-            </a>
+            </a> */}
             <a
               href={WA_LINK}
               target="_blank"

@@ -38,12 +38,17 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 lg:px-8">
           <nav className="flex items-center justify-between">
-            {/* Logo */}
-            <a
-              href="#"
-              className="font-heading text-2xl md:text-3xl font-semibold tracking-wide text-foreground"
-            >
-              Indicann Health
+            <a href="#" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="Indicann Health"
+                draggable={false}
+                className={cn(
+                  "w-auto",
+                  "h-14 md:h-16",
+                  isScrolled ? "-my-3" : "-my-5"
+                )}
+              />
             </a>
 
             {/* Desktop Navigation */}
