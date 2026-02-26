@@ -5,14 +5,14 @@ const Footer = () => {
     <footer className="py-12 md:py-16 bg-muted">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="text-center md:text-left">
+          <div className="flex flex-col items-center text-center md:text-left">
             <img
-              src="/logo.png"
-              alt="Indicann Health"
+              src="/logo.svg"
+              alt="Medicina Sativa"
               draggable={false}
-              className="w-auto h-[5.25rem] md:h-[6rem]"
+              className="w-auto h-[5.5rem] md:h-[5rem] object-contain"
             />
-            <p className="text-sm text-muted-foreground mt-2">
+            <p className="text-sm text-muted-foreground mt-4">
               Cuidado com confiança e elegância.
             </p>
           </div>
@@ -54,7 +54,7 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Indicann Health. Todos os direitos reservados.
+            © {new Date().getFullYear()} Medicina Sativa. Todos os direitos reservados.
           </p>
         </div>
       </div>

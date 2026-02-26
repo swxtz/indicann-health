@@ -12,6 +12,7 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -29,23 +30,22 @@ const Header = () => {
 
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 flex items-center transition-all duration-300",
           "bg-background shadow-sm",
-          isScrolled ? "py-3" : "py-5",
+          isScrolled ? "h-20" : "h-24",
           !isScrolled && !isMobileMenuOpen && "lg:bg-transparent lg:shadow-none"
         )}
       >
-        <div className="container mx-auto px-4 lg:px-8">
+        <div className="container mx-auto px-4 lg:px-8 w-full">
           <nav className="flex items-center justify-between">
             <a href="#" className="flex items-center">
               <img
-                src="/logo.png"
-                alt="Indicann Health"
+                src="/logo.svg"
+                alt="Medicina Sativa"
                 draggable={false}
                 className={cn(
-                  "w-auto",
-                  "h-14 md:h-16",
-                  isScrolled ? "-my-3" : "-my-5"
+                  "w-auto object-contain transition-all duration-300",
+                  isScrolled ? "h-14" : "h-18 md:h-20"
                 )}
               />
             </a>

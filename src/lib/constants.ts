@@ -8,6 +8,6 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = {
-  instagram: "https://instagram.com/indicannhealth",
+  instagram: "https://instagram.com/medicinasativa",
   whatsapp: WA_LINK,
 };
